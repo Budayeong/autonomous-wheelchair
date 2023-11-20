@@ -1,0 +1,981 @@
+[
+    {
+        "id": "1b3668693fcebb44",
+        "type": "tab",
+        "label": "플로우 1",
+        "disabled": false,
+        "info": "",
+        "env": []
+    },
+    {
+        "id": "8492cc80.68083",
+        "type": "subflow",
+        "name": "Hello!",
+        "info": "This is \"Hello!\" subflow!\nIt's querying database with string received from you.\n\n## Inputs\n`msg.params`, example value:\n```\n['Hello Me!']\n```\n\n## Outputs\n`msg.payload` - response from database",
+        "category": "Greetings",
+        "in": [
+            {
+                "x": 60,
+                "y": 80,
+                "wires": [
+                    {
+                        "id": "b51ebd14.7e21c"
+                    }
+                ]
+            }
+        ],
+        "out": [
+            {
+                "x": 760,
+                "y": 80,
+                "wires": [
+                    {
+                        "id": "ae2a4460.2dd028",
+                        "port": 0
+                    }
+                ]
+            }
+        ],
+        "env": [],
+        "color": "#FFCC66",
+        "icon": "font-awesome/fa-handshake-o"
+    },
+    {
+        "id": "f66a7ef5.6d77d",
+        "type": "subflow",
+        "name": "Find 1's In Array",
+        "info": "",
+        "category": "",
+        "in": [
+            {
+                "x": 50,
+                "y": 30,
+                "wires": [
+                    {
+                        "id": "f041e7cf.6de4a8"
+                    }
+                ]
+            }
+        ],
+        "out": [
+            {
+                "x": 580,
+                "y": 40,
+                "wires": [
+                    {
+                        "id": "b1630fdf.845a18",
+                        "port": 0
+                    }
+                ]
+            }
+        ],
+        "env": [],
+        "color": "#DDAA99"
+    },
+    {
+        "id": "c2187e158a66f64b",
+        "type": "ui_group",
+        "name": "휠체어 현황",
+        "tab": "220e69f02df662af",
+        "order": 1,
+        "disp": true,
+        "width": "13",
+        "collapse": false,
+        "className": ""
+    },
+    {
+        "id": "8732c1a03f8c7bbf",
+        "type": "ui_base",
+        "theme": {
+            "name": "theme-light",
+            "lightTheme": {
+                "default": "#0094CE",
+                "baseColor": "#99bbcc",
+                "baseFont": "Arial Black,Arial Black,Gadget,sans-serif",
+                "edited": true,
+                "reset": false
+            },
+            "darkTheme": {
+                "default": "#097479",
+                "baseColor": "#097479",
+                "baseFont": "-apple-system,BlinkMacSystemFont,Segoe UI,Roboto,Oxygen-Sans,Ubuntu,Cantarell,Helvetica Neue,sans-serif",
+                "edited": true,
+                "reset": false
+            },
+            "customTheme": {
+                "name": "Untitled Theme 1",
+                "default": "#4B7930",
+                "baseColor": "#4B7930",
+                "baseFont": "-apple-system,BlinkMacSystemFont,Segoe UI,Roboto,Oxygen-Sans,Ubuntu,Cantarell,Helvetica Neue,sans-serif",
+                "reset": false
+            },
+            "themeState": {
+                "base-color": {
+                    "default": "#0094CE",
+                    "value": "#99bbcc",
+                    "edited": true
+                },
+                "page-titlebar-backgroundColor": {
+                    "value": "#99bbcc",
+                    "edited": true
+                },
+                "page-backgroundColor": {
+                    "value": "#fafafa",
+                    "edited": true
+                },
+                "page-sidebar-backgroundColor": {
+                    "value": "#ffffff",
+                    "edited": false
+                },
+                "group-textColor": {
+                    "value": "#ccdde5",
+                    "edited": false
+                },
+                "group-borderColor": {
+                    "value": "#ffffff",
+                    "edited": false
+                },
+                "group-backgroundColor": {
+                    "value": "#ffffff",
+                    "edited": false
+                },
+                "widget-textColor": {
+                    "value": "#111111",
+                    "edited": false
+                },
+                "widget-backgroundColor": {
+                    "value": "#99bbcc",
+                    "edited": false
+                },
+                "widget-borderColor": {
+                    "value": "#ffffff",
+                    "edited": false
+                },
+                "base-font": {
+                    "value": "Arial Black,Arial Black,Gadget,sans-serif"
+                }
+            },
+            "angularTheme": {
+                "primary": "indigo",
+                "accents": "blue",
+                "warn": "red",
+                "background": "grey",
+                "palette": "light"
+            }
+        },
+        "site": {
+            "name": "Node-RED Dashboard",
+            "hideToolbar": "false",
+            "allowSwipe": "false",
+            "lockMenu": "false",
+            "allowTempTheme": "true",
+            "dateFormat": "DD/MM/YYYY",
+            "sizes": {
+                "sx": 60,
+                "sy": 60,
+                "gx": 6,
+                "gy": 6,
+                "cx": 6,
+                "cy": 6,
+                "px": 0,
+                "py": 0
+            }
+        }
+    },
+    {
+        "id": "5bba9e25.6ff41",
+        "type": "digitaloak-postgresql-connection-manager",
+        "name": "localhost",
+        "host": "postgres",
+        "port": "1880",
+        "database": "postgres",
+        "tls": "",
+        "use_tls": false,
+        "pool_max_clients": "50",
+        "pool_client_max_idle": "2000",
+        "client_query_timeout": "",
+        "client_statement_timeout": "",
+        "client_connection_timeout_millis": "",
+        "is_client_enabled": "1"
+    },
+    {
+        "id": "220e69f02df662af",
+        "type": "ui_tab",
+        "name": "Control Page",
+        "icon": "휠체어 현황",
+        "order": 1,
+        "disabled": false,
+        "hidden": false
+    },
+    {
+        "id": "246df2cb11a134fc",
+        "type": "ui_group",
+        "name": "지도",
+        "tab": "220e69f02df662af",
+        "order": 3,
+        "disp": true,
+        "width": 17,
+        "collapse": true,
+        "className": ""
+    },
+    {
+        "id": "47f0556b.db072c",
+        "type": "ui_tab",
+        "name": "ICM",
+        "icon": "dashboard"
+    },
+    {
+        "id": "7ceb168faf2f19d1",
+        "type": "ui_spacer",
+        "z": "1b3668693fcebb44",
+        "name": "spacer",
+        "group": "c2187e158a66f64b",
+        "order": 4,
+        "width": 3,
+        "height": 1
+    },
+    {
+        "id": "0e155c6cbdb84058",
+        "type": "ui_spacer",
+        "z": "1b3668693fcebb44",
+        "name": "spacer",
+        "group": "c2187e158a66f64b",
+        "order": 6,
+        "width": 3,
+        "height": 1
+    },
+    {
+        "id": "56a219a1d5603881",
+        "type": "ui_spacer",
+        "z": "1b3668693fcebb44",
+        "name": "spacer",
+        "group": "c2187e158a66f64b",
+        "order": 7,
+        "width": 3,
+        "height": 1
+    },
+    {
+        "id": "e510783f9c6f9f16",
+        "type": "ui_spacer",
+        "z": "1b3668693fcebb44",
+        "name": "spacer",
+        "group": "c2187e158a66f64b",
+        "order": 8,
+        "width": 3,
+        "height": 1
+    },
+    {
+        "id": "d968f3c0a57fb866",
+        "type": "ui_spacer",
+        "z": "1b3668693fcebb44",
+        "name": "spacer",
+        "group": "c2187e158a66f64b",
+        "order": 9,
+        "width": 1,
+        "height": 1
+    },
+    {
+        "id": "751ebb0914773b7b",
+        "type": "ui_spacer",
+        "z": "1b3668693fcebb44",
+        "name": "spacer",
+        "group": "c2187e158a66f64b",
+        "order": 13,
+        "width": 1,
+        "height": 1
+    },
+    {
+        "id": "ac6c057edcda22bc",
+        "type": "ui_spacer",
+        "z": "1b3668693fcebb44",
+        "name": "spacer",
+        "group": "c2187e158a66f64b",
+        "order": 15,
+        "width": 1,
+        "height": 1
+    },
+    {
+        "id": "6cc8ae3b048ac2af",
+        "type": "ui_spacer",
+        "z": "1b3668693fcebb44",
+        "name": "spacer",
+        "group": "c2187e158a66f64b",
+        "order": 16,
+        "width": 1,
+        "height": 1
+    },
+    {
+        "id": "e83e7bc215558450",
+        "type": "ui_spacer",
+        "z": "1b3668693fcebb44",
+        "name": "spacer",
+        "group": "c2187e158a66f64b",
+        "order": 17,
+        "width": 3,
+        "height": 1
+    },
+    {
+        "id": "78dada4110f80bde",
+        "type": "ui_spacer",
+        "z": "1b3668693fcebb44",
+        "name": "spacer",
+        "group": "c2187e158a66f64b",
+        "order": 19,
+        "width": 3,
+        "height": 1
+    },
+    {
+        "id": "0ff46af8e21a16e1",
+        "type": "ui_spacer",
+        "z": "1b3668693fcebb44",
+        "name": "spacer",
+        "group": "c2187e158a66f64b",
+        "order": 20,
+        "width": 3,
+        "height": 1
+    },
+    {
+        "id": "b54006e0fda8510e",
+        "type": "ui_spacer",
+        "z": "1b3668693fcebb44",
+        "name": "spacer",
+        "group": "c2187e158a66f64b",
+        "order": 21,
+        "width": 3,
+        "height": 1
+    },
+    {
+        "id": "b51ebd14.7e21c",
+        "type": "change",
+        "z": "8492cc80.68083",
+        "name": "Greeting param",
+        "rules": [
+            {
+                "t": "set",
+                "p": "query.values",
+                "pt": "msg",
+                "to": "params",
+                "tot": "jsonata"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 200,
+        "y": 80,
+        "wires": [
+            [
+                "34d944a0.2effbc"
+            ]
+        ]
+    },
+    {
+        "id": "34d944a0.2effbc",
+        "type": "template",
+        "z": "8492cc80.68083",
+        "name": "SELECT $1 AS Greeting",
+        "field": "query.text",
+        "fieldType": "msg",
+        "format": "sql",
+        "syntax": "mustache",
+        "template": "SELECT $1 AS greeting",
+        "output": "str",
+        "x": 410,
+        "y": 80,
+        "wires": [
+            [
+                "ae2a4460.2dd028"
+            ]
+        ]
+    },
+    {
+        "id": "ae2a4460.2dd028",
+        "type": "digitaloak-postgresql-query",
+        "z": "8492cc80.68083",
+        "name": "",
+        "server": "5bba9e25.6ff41",
+        "inputs": 1,
+        "outputs": 1,
+        "x": 630,
+        "y": 80,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "f041e7cf.6de4a8",
+        "type": "function",
+        "z": "f66a7ef5.6d77d",
+        "name": "Find 1's In Array",
+        "func": "for (i=0;i<msg.payload.length;i++){\n    if (msg.payload[i] == 1){\n        msg.index = i\n        node.send(msg);\n    }\n}\n",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "x": 200,
+        "y": 80,
+        "wires": [
+            [
+                "b1630fdf.845a18"
+            ]
+        ]
+    },
+    {
+        "id": "b1630fdf.845a18",
+        "type": "join",
+        "z": "f66a7ef5.6d77d",
+        "name": "",
+        "mode": "custom",
+        "build": "array",
+        "property": "index",
+        "propertyType": "msg",
+        "key": "topic",
+        "joiner": "\\n",
+        "joinerType": "str",
+        "accumulate": false,
+        "timeout": "2",
+        "count": "",
+        "reduceRight": false,
+        "reduceExp": "",
+        "reduceInit": "",
+        "reduceInitType": "",
+        "reduceFixup": "",
+        "x": 430,
+        "y": 80,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "0499858e0adf6ce7",
+        "type": "inject",
+        "z": "1b3668693fcebb44",
+        "name": "",
+        "props": [
+            {
+                "p": "payload"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "topic": "",
+        "payload": "[{\"번호\":\"R-01\",\"목적지\":\"신경과\",\"상태\":\"주행 중\",\"호출\":\"\"},{\"번호\":\"R-02\",\"목적지\":\"\",\"상태\":\"대기\",\"호출\":\"\"},{\"번호\":\"R-03\",\"목적지\":\"\",\"상태\":\"대기\",\"호출\":\"\"},{\"번호\":\"R-04\",\"목적지\":\"병동 약국\",\"상태\":\"주행 중\",\"호출\":\"호출\"},{\"번호\":\"R-05\",\"목적지\":\"\",\"상태\":\"대기\",\"호출\":\"\"},{\"번호\":\"R-06\",\"목적지\":\"\",\"상태\":\"대기\",\"호출\":\"\"},{\"번호\":\"R-07\",\"목적지\":\"비뇨기과\",\"상태\":\"주행 중\",\"호출\":\"\"},{\"번호\":\"R-08\",\"목적지\":\"접수대\",\"상태\":\"주행 중\",\"호출\":\"\"},{\"번호\":\"R-09\",\"목적지\":\"\",\"상태\":\"대기\",\"호출\":\"\"},{\"번호\":\"R-10\",\"목적지\":\"\",\"상태\":\"대기\",\"호출\":\"\"}]",
+        "payloadType": "json",
+        "x": 530,
+        "y": 380,
+        "wires": [
+            [
+                "ee4f075aa8cd6bd6",
+                "3508e3e23bca9091"
+            ]
+        ]
+    },
+    {
+        "id": "3508e3e23bca9091",
+        "type": "ui_table",
+        "z": "1b3668693fcebb44",
+        "group": "c2187e158a66f64b",
+        "name": "",
+        "order": 1,
+        "width": 13,
+        "height": 5,
+        "columns": [
+            {
+                "field": "번호",
+                "title": "번호",
+                "width": "17%",
+                "align": "center",
+                "formatter": "plaintext",
+                "formatterParams": {
+                    "target": "_blank"
+                }
+            },
+            {
+                "field": "목적지",
+                "title": "목적지",
+                "width": "",
+                "align": "center",
+                "formatter": "plaintext",
+                "formatterParams": {
+                    "target": "_blank"
+                }
+            },
+            {
+                "field": "상태",
+                "title": "상태",
+                "width": "",
+                "align": "center",
+                "formatter": "plaintext",
+                "formatterParams": {
+                    "target": "_blank"
+                }
+            },
+            {
+                "field": "호출",
+                "title": "호출",
+                "width": "",
+                "align": "center",
+                "formatter": "plaintext",
+                "formatterParams": {
+                    "target": "_blank"
+                }
+            }
+        ],
+        "outputs": 1,
+        "cts": true,
+        "x": 690,
+        "y": 360,
+        "wires": [
+            [
+                "2d8f9aa3196c0e85"
+            ]
+        ]
+    },
+    {
+        "id": "2d8f9aa3196c0e85",
+        "type": "debug",
+        "z": "1b3668693fcebb44",
+        "name": "debug 3",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "true",
+        "targetType": "full",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 1040,
+        "y": 360,
+        "wires": []
+    },
+    {
+        "id": "998eecb19ec0744f",
+        "type": "ui_template",
+        "z": "1b3668693fcebb44",
+        "group": "246df2cb11a134fc",
+        "name": "map",
+        "order": 2,
+        "width": 17,
+        "height": 10,
+        "format": "<img id=\"imgmap\" src=\"https://ifh.cc/g/7xHxQG.png\" draggable=\"false\">\n<img id=\"imgcursor\" style=\"position: absolute; top: 0px; left: 0px; height: 40px; width: 40px \"src=\"http://www.pngall.com/wp-content/uploads/2017/05/Map-Marker-PNG-File.png\">\n<div id=\"coords\" style=\"color: black; z-index: 100; pointer-events:none;\"></div>\n\n<script>\n    (function($scope) {\n\n    $('#imgmap').on('touchstart touchmove',function(e){\n    e.preventDefault();\n    const map = document.getElementById(\"imgmap\");\n    let rect = map.getBoundingClientRect();\n    let xCoordinate = ((e.touches[0].clientX - rect.left)/ (rect.right- rect.left)).toFixed(4);\n    let yCoordinate = ((e.touches[0].clientY - rect.top)/(rect.bottom - rect.top)).toFixed(4);\n    if (xCoordinate < 1 && xCoordinate > 0 && yCoordinate < 1 && yCoordinate > 0){\n        $(\"#coords\").text( \"X: \" + xCoordinate + \", Y: \" + yCoordinate);\n        $(\"#imgcursor\").css( \"left\", (e.touches[0].clientX - rect.left)); // offset to half of the cursor's width\n        $(\"#imgcursor\").css( \"top\", (e.touches[0].clientY - rect.top));  // offset to half of the cursor's height\n        $scope.send({\"payload\":{\"coordX\": xCoordinate, \"coordY\": yCoordinate}});\n    }\n    });\n\n    $('#imgmap').on('mousemove mousedown mouseup',function(e){\n    e.preventDefault();\n    const map = document.getElementById(\"imgmap\");\n    let rect = map.getBoundingClientRect();\n    let xCoordinate = ((e.clientX - rect.left)/ (rect.right- rect.left)).toFixed(4);\n    let yCoordinate = ((e.clientY - rect.top)/(rect.bottom - rect.top)).toFixed(4);\n    if (xCoordinate < 1 && xCoordinate > 0 && yCoordinate < 1 && yCoordinate > 0 && e.buttons == 1){ \n        $(\"#coords\").text( \"X: \" + xCoordinate + \", Y: \" + yCoordinate);\n        $(\"#imgcursor\").css( \"left\", (e.clientX - rect.left)- 13); // offset to half of the cursor's width\n        $(\"#imgcursor\").css( \"top\", (e.clientY - rect.top)- 13); // offset to half of the cursor's height\n        \n        $scope.send({\"payload\":{\"coordX\": xCoordinate, \"coordY\": yCoordinate}});\n    }\n    });\n\n})(scope);\n</script>",
+        "storeOutMessages": true,
+        "fwdInMessages": true,
+        "resendOnRefresh": true,
+        "templateScope": "local",
+        "className": "",
+        "x": 870,
+        "y": 500,
+        "wires": [
+            [
+                "2d8f9aa3196c0e85"
+            ]
+        ]
+    },
+    {
+        "id": "e3d6e773a8abe8af",
+        "type": "ui_button",
+        "z": "1b3668693fcebb44",
+        "name": "up",
+        "group": "c2187e158a66f64b",
+        "order": 5,
+        "width": 2,
+        "height": 2,
+        "passthru": false,
+        "label": "",
+        "tooltip": "",
+        "color": "",
+        "bgcolor": "",
+        "className": "up-button",
+        "icon": "arrow_upwards",
+        "payload": "",
+        "payloadType": "str",
+        "topic": "topic",
+        "topicType": "msg",
+        "x": 1430,
+        "y": 320,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "ee4f075aa8cd6bd6",
+        "type": "ui_text",
+        "z": "1b3668693fcebb44",
+        "group": "c2187e158a66f64b",
+        "order": 2,
+        "width": 0,
+        "height": 0,
+        "name": "주행 제어 권한",
+        "label": "주행 권한 제어",
+        "format": "",
+        "layout": "row-left",
+        "className": "font-weight: bold;",
+        "style": true,
+        "font": "Impact,Impact,Charcoal,sans-serif",
+        "fontSize": "22",
+        "color": "#ffffff",
+        "x": 720,
+        "y": 420,
+        "wires": []
+    },
+    {
+        "id": "28e4174ebc40edcb",
+        "type": "ui_template",
+        "z": "1b3668693fcebb44",
+        "group": "c2187e158a66f64b",
+        "name": "css",
+        "order": 22,
+        "width": 13,
+        "height": 1,
+        "format": "<style>\n/*\nRefer to \nhttps://community.homey.app/t/node-red-a-widget-based-dashboard-working-with-homey-trough-mqtt/18798/528?page=22\n*/\n\n/*root, a, button, p, div {\n    -webkit-user-select: none !important;\n}*/\n\n\nbody {\n    background: -webkit-linear-gradient(\n    55deg,\n    #383838 30%,\n    #1F1F1F 50%,\n    #1F1F1F 60%\n    );\n    /*-webkit-touch-callout: none !important;*/\n}\n\n.nr-dashboard-tabs md-tab-label {\n    background-color: ##99BbCC;\n    color: #FFFFFF;\n}\n\nbody.nr-dashboard-theme md-toolbar,\nbody.nr-dashboard-theme md-content md-card {\n    background-color: transparent !important;\n    color: #FFFFFF;\n}\n\nui-card-panel {\n    background-color: rgba(255,255,255,0.1) !important;\n    border-radius: 10px !important;\n}\n    \n.nr-dashboard-text {\nfont-size: 24px; \nfont-weight: bold; \n}\n\n.md-card.md-default-theme, md-card {\n    border-radius: 10px;\n}\n\n.nr-dashboard-switch.ng-scope {\n    background-color: rgba(255,255,255,.2) !important;\n}\n\n.nr-dashboard-switch.ng-scope:hover {\n    background-color: rgba(255,255,255,.5) !important;\n}\n\n.nr-dashboard-theme .nr-dashboard-button .md-button {\n    background-color: rgba(255,255,255,.2);\n}\n\n.md-button {\n    border-radius: 15px;\n}\n\n.nr-dashboard-cardpanel layout-column {\n    background-color: rgba(255,255,255,0.2) !important;\n    background-color: transparent !important;\n    border-radius: 10px !important;\n}\n\n.nr-dashboard-theme ui-card-panel {\n    border: none;\n}\n\n.nr-dashboard-theme md-content md-card {\n    background-color: transparent !important;\n}\n.nr-dashboard-template {\noverflow-y: visible;\n}\n\n.nr-dashboard-theme ui-card-panel p.nr-dashboard-cardtitle {\n    color: rgba(255, 255, 255, 1);\n    font-weight: bold;\n}\n\n.nr-dashboard-button .md-button {\nfont-size: 23px; /* 원하는 텍스트 크기로 설정 */\nfont-weight: bold; /* 볼드체 설정 */\n}\n\n</style>\n\n<script>\ndocument.ontouchmove = function (e) {\n    e.preventDefault();\n}\n</script>",
+        "storeOutMessages": true,
+        "fwdInMessages": true,
+        "resendOnRefresh": false,
+        "templateScope": "global",
+        "className": "",
+        "x": 690,
+        "y": 300,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "b46fc34f9d122b11",
+        "type": "inject",
+        "z": "1b3668693fcebb44",
+        "name": "button",
+        "props": [
+            {
+                "p": "payload"
+            },
+            {
+                "p": "topic",
+                "vt": "str"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "topic": "",
+        "payload": "<img src=\"https://png.pngtree.com/png-vector/20190420/ourmid/pngtree-vector-left-arrow-icon-png-image_966660.jpg\">",
+        "payloadType": "str",
+        "x": 1230,
+        "y": 500,
+        "wires": [
+            [
+                "ebc2ea01631af986",
+                "69323c5fbe27b9ce",
+                "824bae2314c6c610",
+                "f77322df5cfcbf06",
+                "8949c70e6fbab9ae",
+                "5c2ba148a0514a08",
+                "e3d6e773a8abe8af"
+            ]
+        ]
+    },
+    {
+        "id": "177412f00bc42c5a",
+        "type": "change",
+        "z": "1b3668693fcebb44",
+        "name": "",
+        "rules": [
+            {
+                "t": "set",
+                "p": "ui_control.icon",
+                "pt": "msg",
+                "to": "arrow",
+                "tot": "str"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 1620,
+        "y": 380,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "f77322df5cfcbf06",
+        "type": "ui_button",
+        "z": "1b3668693fcebb44",
+        "name": "right",
+        "group": "c2187e158a66f64b",
+        "order": 12,
+        "width": 2,
+        "height": 2,
+        "passthru": false,
+        "label": "",
+        "tooltip": "",
+        "color": "",
+        "bgcolor": "",
+        "className": "",
+        "icon": "arrow_forward",
+        "payload": "",
+        "payloadType": "str",
+        "topic": "topic",
+        "topicType": "msg",
+        "x": 1430,
+        "y": 380,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "730643477f2eb3a0",
+        "type": "change",
+        "z": "1b3668693fcebb44",
+        "name": "",
+        "rules": [
+            {
+                "t": "set",
+                "p": "ui_control.icon",
+                "pt": "msg",
+                "to": "arrow",
+                "tot": "str"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 1620,
+        "y": 320,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "ebc2ea01631af986",
+        "type": "ui_button",
+        "z": "1b3668693fcebb44",
+        "name": "정지",
+        "group": "c2187e158a66f64b",
+        "order": 11,
+        "width": 2,
+        "height": 2,
+        "passthru": false,
+        "label": "정지",
+        "tooltip": "",
+        "color": "",
+        "bgcolor": "",
+        "className": "stop-button",
+        "icon": "",
+        "payload": "",
+        "payloadType": "str",
+        "topic": "topic",
+        "topicType": "msg",
+        "x": 1430,
+        "y": 440,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "8949c70e6fbab9ae",
+        "type": "ui_button",
+        "z": "1b3668693fcebb44",
+        "name": "left",
+        "group": "c2187e158a66f64b",
+        "order": 10,
+        "width": 2,
+        "height": 2,
+        "passthru": false,
+        "label": "",
+        "tooltip": "",
+        "color": "",
+        "bgcolor": "",
+        "className": "",
+        "icon": "arrow_back",
+        "payload": "",
+        "payloadType": "str",
+        "topic": "topic",
+        "topicType": "msg",
+        "x": 1430,
+        "y": 500,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "f82f0ca68da38f70",
+        "type": "change",
+        "z": "1b3668693fcebb44",
+        "name": "",
+        "rules": [
+            {
+                "t": "set",
+                "p": "ui_control.icon",
+                "pt": "msg",
+                "to": "arrow",
+                "tot": "str"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 1620,
+        "y": 500,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "5c2ba148a0514a08",
+        "type": "ui_button",
+        "z": "1b3668693fcebb44",
+        "name": "down",
+        "group": "c2187e158a66f64b",
+        "order": 18,
+        "width": 2,
+        "height": 2,
+        "passthru": false,
+        "label": "",
+        "tooltip": "",
+        "color": "",
+        "bgcolor": "",
+        "className": "",
+        "icon": "arrow_downward",
+        "payload": "",
+        "payloadType": "str",
+        "topic": "topic",
+        "topicType": "msg",
+        "x": 1430,
+        "y": 560,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "eb77c2e77271bd93",
+        "type": "change",
+        "z": "1b3668693fcebb44",
+        "name": "",
+        "rules": [
+            {
+                "t": "set",
+                "p": "ui_control.icon",
+                "pt": "msg",
+                "to": "arrow",
+                "tot": "str"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 1620,
+        "y": 560,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "69323c5fbe27b9ce",
+        "type": "ui_button",
+        "z": "1b3668693fcebb44",
+        "name": "",
+        "group": "c2187e158a66f64b",
+        "order": 3,
+        "width": 5,
+        "height": 3,
+        "passthru": false,
+        "label": "주행 권한 시작",
+        "tooltip": "",
+        "color": "",
+        "bgcolor": "#469536",
+        "className": "",
+        "icon": "",
+        "payload": "",
+        "payloadType": "str",
+        "topic": "topic",
+        "topicType": "msg",
+        "x": 1460,
+        "y": 620,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "824bae2314c6c610",
+        "type": "ui_button",
+        "z": "1b3668693fcebb44",
+        "name": "",
+        "group": "c2187e158a66f64b",
+        "order": 14,
+        "width": 5,
+        "height": 3,
+        "passthru": false,
+        "label": "주행 권한 취소",
+        "tooltip": "",
+        "color": "",
+        "bgcolor": "#dd5035",
+        "className": "",
+        "icon": "",
+        "payload": "",
+        "payloadType": "str",
+        "topic": "topic",
+        "topicType": "msg",
+        "x": 1460,
+        "y": 680,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "16cd9627b13b2aa4",
+        "type": "ui_template",
+        "z": "1b3668693fcebb44",
+        "group": "246df2cb11a134fc",
+        "name": "map css",
+        "order": 1,
+        "width": 0,
+        "height": 0,
+        "format": "<style>\n    body {\n    background: -webkit-linear-gradient(\n    55deg,\n    #383838 30%,\n    #1F1F1F 50%,\n    #1F1F1F 60%\n    );\n    /*-webkit-touch-callout: none !important;*/\n    }\n</style>",
+        "storeOutMessages": true,
+        "fwdInMessages": true,
+        "resendOnRefresh": true,
+        "templateScope": "local",
+        "className": "",
+        "x": 700,
+        "y": 500,
+        "wires": [
+            [
+                "998eecb19ec0744f"
+            ]
+        ]
+    },
+    {
+        "id": "5892144dd7e01144",
+        "type": "ui_template",
+        "z": "1b3668693fcebb44",
+        "group": "c2187e158a66f64b",
+        "name": "button css",
+        "order": 23,
+        "width": 0,
+        "height": 0,
+        "format": "<style>\n    .stop-button {\n        font-size:25px;\n    }\n</style>",
+        "storeOutMessages": true,
+        "fwdInMessages": true,
+        "resendOnRefresh": true,
+        "templateScope": "local",
+        "className": "",
+        "x": 1230,
+        "y": 580,
+        "wires": [
+            []
+        ]
+    }
+]

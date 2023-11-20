@@ -1,0 +1,190 @@
+[
+    {
+        "id": "21121dbb5744b216",
+        "type": "tab",
+        "label": "플로우 1",
+        "disabled": false,
+        "info": "",
+        "env": []
+    },
+    {
+        "id": "1a3b6b47d4f25b82",
+        "type": "inject",
+        "z": "21121dbb5744b216",
+        "name": "",
+        "props": [
+            {
+                "p": "payload"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "topic": "",
+        "payload": "[{\"번호\":\"R-01\",\"목적지\":\"신경과\",\"상태\":\"주행 중\",\"호출\":\"호출\"},{\"번호\":\"R-02\",\"목적지\":\"\",\"상태\":\"대기\",\"호출\":\"\"},{\"번호\":\"R-03\",\"목적지\":\"\",\"상태\":\"대기\",\"호출\":\"\"},{\"번호\":\"R-04\",\"목적지\":\"병동 약국\",\"상태\":\"주행 중\",\"호출\":\"\"},{\"번호\":\"R-05\",\"목적지\":\"\",\"상태\":\"대기\",\"호출\":\"\"},{\"번호\":\"R-06\",\"목적지\":\"\",\"상태\":\"대기\",\"호출\":\"\"},{\"번호\":\"R-07\",\"목적지\":\"정형외과 병실\",\"상태\":\"주행 중\",\"호출\":\"\"},{\"번호\":\"R-08\",\"목적지\":\"접수대\",\"상태\":\"주행 중\",\"호출\":\"\"},{\"번호\":\"R-09\",\"목적지\":\"\",\"상태\":\"대기\",\"호출\":\"\"},{\"번호\":\"R-10\",\"목적지\":\"\",\"상태\":\"대기\",\"호출\":\"\"}]",
+        "payloadType": "json",
+        "x": 410,
+        "y": 240,
+        "wires": [
+            [
+                "d7b80bce63296716",
+                "bf7a34ecc8a512dd"
+            ]
+        ]
+    },
+    {
+        "id": "d7b80bce63296716",
+        "type": "ui_table",
+        "z": "21121dbb5744b216",
+        "group": "c2187e158a66f64b",
+        "name": "",
+        "order": 1,
+        "width": 13,
+        "height": 16,
+        "columns": [
+            {
+                "field": "번호",
+                "title": "번호",
+                "width": "17%",
+                "align": "center",
+                "formatter": "plaintext",
+                "formatterParams": {
+                    "target": "_blank"
+                }
+            },
+            {
+                "field": "목적지",
+                "title": "목적지",
+                "width": "",
+                "align": "center",
+                "formatter": "plaintext",
+                "formatterParams": {
+                    "target": "_blank"
+                }
+            },
+            {
+                "field": "상태",
+                "title": "상태",
+                "width": "",
+                "align": "center",
+                "formatter": "plaintext",
+                "formatterParams": {
+                    "target": "_blank"
+                }
+            },
+            {
+                "field": "호출",
+                "title": "호출",
+                "width": "",
+                "align": "center",
+                "formatter": "plaintext",
+                "formatterParams": {
+                    "target": "_blank"
+                }
+            }
+        ],
+        "outputs": 1,
+        "cts": true,
+        "x": 790,
+        "y": 240,
+        "wires": [
+            [
+                "c50cf317fff3d1c3"
+            ]
+        ]
+    },
+    {
+        "id": "c50cf317fff3d1c3",
+        "type": "debug",
+        "z": "21121dbb5744b216",
+        "name": "debug 3",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "false",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 1000,
+        "y": 280,
+        "wires": []
+    },
+    {
+        "id": "e41181823587e77e",
+        "type": "ui_table",
+        "z": "21121dbb5744b216",
+        "group": "c2187e158a66f64b",
+        "name": "",
+        "order": 1,
+        "width": 0,
+        "height": 0,
+        "columns": [
+            {
+                "field": "지도",
+                "title": "지도",
+                "width": "",
+                "align": "center",
+                "formatter": "image",
+                "formatterParams": {
+                    "target": "_blank"
+                }
+            }
+        ],
+        "outputs": 1,
+        "cts": true,
+        "x": 790,
+        "y": 340,
+        "wires": [
+            [
+                "c50cf317fff3d1c3"
+            ]
+        ]
+    },
+    {
+        "id": "bf7a34ecc8a512dd",
+        "type": "change",
+        "z": "21121dbb5744b216",
+        "name": "",
+        "rules": [
+            {
+                "t": "set",
+                "p": "payload",
+                "pt": "msg",
+                "to": "",
+                "tot": "str"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 600,
+        "y": 340,
+        "wires": [
+            [
+                "e41181823587e77e"
+            ]
+        ]
+    },
+    {
+        "id": "c2187e158a66f64b",
+        "type": "ui_group",
+        "name": "휠체어 현황",
+        "tab": "7abe50e7b66b466b",
+        "order": 1,
+        "disp": true,
+        "width": "13",
+        "collapse": false,
+        "className": ""
+    },
+    {
+        "id": "7abe50e7b66b466b",
+        "type": "ui_tab",
+        "name": "Control Page",
+        "icon": "",
+        "disabled": false,
+        "hidden": false
+    }
+]
