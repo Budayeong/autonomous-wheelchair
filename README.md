@@ -23,12 +23,47 @@
 
 # :page_with_curl: 프로젝트 내용
 ### 1. 개발 배경 및 필요성
+<p align="left" width="100%">
+	<img src="https://github.com/Budayeong/autonomous-wheelchair/assets/115779162/bb86873d-8eb4-47d5-9aed-96554a0244a9.png" width="49%">
+	<img src="https://github.com/Budayeong/autonomous-wheelchair/assets/115779162/9f656564-dde4-4708-b9e1-6842cb6bd843.png" width="49%">
+</p>
 
 ---
+
 ### 2. 프로젝트 개요 및 구조
+- **개발환경**: ROS가 설치된 라즈베리파이(로봇), 서버(PC)로 구성됨. publisher를 통해 통신
+- **프로세스**: 자율주행 휠체어 로봇에서 서버와 관제페이지로 정보 전달, 서버에서는 자율주행 경로 정보를 휠체어로 전달함. 관제 페이지에서는 휠체어 로봇의 정보를 받아 휠체어 로봇의 현황을 파악함
+
+<p align="center" width="100%">
+	<img src="https://github.com/Budayeong/autonomous-wheelchair/assets/115779162/17204e6b-f054-4700-8917-976337a1c9f7.png" width="49%">
+	<img src="https://github.com/Budayeong/autonomous-wheelchair/assets/115779162/7a222de8-9189-4785-a761-65a5f3973723.png" width="49%">
+</p>
+
 
 ---
 ### 3. 휠체어 로봇 기능
 
----
-### 4. 기대효과 및 진행내용
+**1. 병원 지도 제작** : ROS의 SLAM 기능을 사용한 병원 내부 지도를 제작
+
+**2. 자율주행** : 정해진 경로로 주행 해 안전사고를 예방한 자율주행
+
+**3. 수동주행** : 사용자의 상세 조작을 위한 기본 기능
+
+**4. 긴급호출** : 위급상황 시 휠체어 정지 및 tts 음성안내 기능
+
+**5. 관제페이지** : 휠체어 관리를 위한 관리자 기능
+- 휠체어 현황 파악(개발 중) : 실시간 휠체어 위치를 지도에 표시
+- 주행권한 제어 : 관리자가 휠체어를 조작
+- 긴급호출 알림 표시: 사용자가 긴급호출 메뉴 사용 시 관제 페이지에 알림 표
+<p align="center" width="100%">
+	<img src="https://github.com/Budayeong/autonomous-wheelchair/assets/115779162/d3fd1cdb-2db0-4fdd-ad28-5fa8ed998129.png" width="49%">
+	<img src="https://github.com/Budayeong/autonomous-wheelchair/assets/115779162/3e6bc349-96f6-4fc9-9abd-ac743a71d8a1.png" width="49%">
+</p>
+<p align="center" width="100%">
+	<img src="https://github.com/Budayeong/autonomous-wheelchair/assets/115779162/6eb09447-829a-4c88-ac0c-8e53600f9222.png" width="49%">
+	<img src="https://github.com/Budayeong/autonomous-wheelchair/assets/115779162/022d3234-54cc-4629-a53c-796b8f240439.png" width="49%">
+</p>
+<p align="center" width="100%">
+	<img src="https://github.com/Budayeong/autonomous-wheelchair/assets/115779162/e7e94c63-25da-41ae-b7f3-03b75de82fb0.png" width="49%">
+	<img src="https://github.com/Budayeong/autonomous-wheelchair/assets/115779162/e0c11786-72ff-4c8c-ac57-03ce22effb84.png" width="49%">
+</p>
