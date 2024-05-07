@@ -45,7 +45,7 @@
 
 **1. 병원 지도 제작** : ROS의 SLAM 기능을 사용한 병원 내부 지도를 제작
 
-**2. 자율주행** : 정해진 경로로 주행 해 안전사고를 예방한 자현
+**2. 자율주행** : 정해진 경로로 주행 해 안전사고를 예방
 <p align="center" width="100%">
 	<img src="https://github.com/Budayeong/autonomous-wheelchair/assets/115779162/d3fd1cdb-2db0-4fdd-ad28-5fa8ed998129.png" width="49%">
 	<img src="https://github.com/Budayeong/autonomous-wheelchair/assets/115779162/3e6bc349-96f6-4fc9-9abd-ac743a71d8a1.png" width="49%">
