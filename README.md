@@ -19,7 +19,7 @@
 ### ⚙️ 개발환경
 - **OS** : Ubuntu 18.04
 - **ROS** : melodic
-- **개발언어** :python
+- **개발언어** : python
 
 # :page_with_curl: 프로젝트 내용
 ### 1. 개발 배경 및 필요성
